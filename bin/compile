@@ -23,10 +23,6 @@ if [ ! -f ${BUILD_DIR}/system.properties ]; then
   echo "java.runtime.version=1.6" > ${BUILD_DIR}/system.properties
 fi
 
-echo -n "-----> Installing wget..."
-install_wget $CACHE_DIR
-echo " version $(wget_version) installed"
-
 # install JDK
 javaVersion=$(detect_java_version ${BUILD_DIR})
 echo -n "-----> Installing JDK ${javaVersion}... "
