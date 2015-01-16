@@ -114,3 +114,11 @@ get_app_system_value() {
   sed -E -e "s/$escaped_key([\ \t]*=[\ \t]*|[\ \t]+)([A-Za-z0-9\.-]*).*/\2/g"
 }
 
+jdk_overlay() {
+  baseDir=$1
+  shopt -s dotglob
+  if [ -d ${baseDir}/.jdk ] && [ -d ${baseDir}/.jdk-overlay ]; then
+    cp -r ${baseDir}/.jdk-overlay/* ${baseDir}/.jdk/
+  fi
+}
+

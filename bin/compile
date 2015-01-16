@@ -31,6 +31,7 @@ fi
 javaVersion=$(detect_java_version ${BUILD_DIR})
 echo -n "-----> Installing JDK ${javaVersion}... "
 install_java $CACHE_DIR $BUILD_DIR
+jdk_overlay ${BUILD_DIR}
 echo " version $(java_version) installed"
 
 export GRADLE_USER_HOME=$CACHE_DIR/.gradle
