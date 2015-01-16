@@ -115,10 +115,14 @@ get_app_system_value() {
 }
 
 jdk_overlay() {
+  echo -n "Checking for JDK overlay... "
   baseDir=$1
   shopt -s dotglob
   if [ -d ${baseDir}/.jdk ] && [ -d ${baseDir}/.jdk-overlay ]; then
+    echo "copied."
     cp -r ${baseDir}/.jdk-overlay/* ${baseDir}/.jdk/
+  else
+    echo "not found."
   fi
 }
 
